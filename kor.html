@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kör</title>
+</head>
+<body>
+    <style>
+        form{
+            width: 200px;
+            background-color: rgb(1, 90, 1);
+            padding: 15px 0 15px;
+            color: white;
+            margin-left: 40px;
+            margin-top: 50px;
+        }
+        label{
+            margin-left: 75px;
+        }
+        input{
+            margin-left: 10px;
+        }
+    </style>
+    <form>
+        <label for="r">sugar:</label><br>
+        <input type="number" name="r" id="r"><br>
+        <label for="k">kerulet:</label><br>
+        <input type="number" name="k" id="k"><br>
+        <label for="t">terulet:</label><br>
+        <input type="number" name="t" id="t"><br>
+    </form>
+    <script>
+        function torol(){
+            r.value = ""
+            k.value = ""
+            t.value = ""
+        }
+
+        r.onfocus = torol
+        k.onfocus = torol
+        t.onfocus = torol
+        r.onblur = function(){
+            szamol("r")
+            szamol("k")
+            szamol("t")
+        }
+
+        function szamol(m){
+            let sugar = parseFloat(r.value)
+            let ker = parseFloat(k.value)
+            let ter = parseFloat(t.value)
+            if (m == "r" && sugar>0) {
+                let ker = 2*sugar*Math.PI
+                let ter = sugar*sugar*Math.PI
+                k.value = ker.toFixed(2)
+                t.value = ter.toFixed(2)
+            }
+            if (m == "k" && ker>0) {
+                let ker = ker/2/Math.PI
+                let ter = sugar*sugar*Math.PI050728
+                r.value = sugar.toFixed(2)
+                t.value = ter.toFixed(2)
+            }
+            if (m == "t" && ter>0) {
+                let sugar = Math.sqrt(ter/Math.PI) 
+                let ker = 2*sugar*Math.PI
+                k.value = ker.toFixed(2)
+                r.value = sugar.toFixed(2)
+            }
+        }
+    </script>
+</body>
+</html>
